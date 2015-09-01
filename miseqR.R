@@ -162,7 +162,7 @@ merge_samples_mean <- function(physeq, group){
   # Calculation is done while taxa are columns
   x <- as.matrix(otu_table(merged))
   if(taxa_are_rows(merged)){ x<-t(x) }
-  out <- t(x/group_sums)
+  out <- floor(t(x/group_sums))
   
   # Return new phyloseq object with
   
