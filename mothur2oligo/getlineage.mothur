@@ -1,0 +1,31 @@
+# This is a template mothur batch script for creating a fasta file 
+# with sequences from a designated taxonomic group and "de-uniquing" the 
+# sequences so that they are in the appropriate format
+# to run through A. Murat Eren's oligotyping pipeline. 
+# Author: Michelle Berry
+# Date: September 3, 2015
+
+# Set appropriate locations for input and output files
+set.dir(output=...)
+set.dir(input=...)
+
+# Set current values for all files used in this script
+set.current(processors=...) 
+set.current(taxonomy=...) 
+set.current(fasta=...)
+set.current(name=...)
+
+# Determine which taxonomic group you want to oligotype 
+get.lineage(taxonomy=current,taxon=... name=current)
+
+# Grabs the lineage selected in previous step from the fasta file
+list.seqs(taxonomy=current)
+get.seqs(accnos=current, fasta=current)
+
+# deuniques the fasta
+deunique.seqs(fasta=current, name=current)
+
+
+
+
+
